@@ -1,0 +1,82 @@
+{% extends "planner_base.html" %}
+
+{% set eyebrow = "PARTY BUDGET PLANNER" %}
+
+{% set heading = "Plan your event without budget guesswork." %}
+
+{% set description = "Allocate food, venue, decoration and entertainment around guest count." %}
+
+{% set action = "/generate-party" %}
+
+
+{% block form %}
+
+<label>
+    Budget (₹)
+
+    <input
+        type="number"
+        name="budget"
+        min="1"
+        step=".01"
+        required
+    >
+</label>
+
+
+<div class="two">
+
+    <label>
+        Guests
+
+        <input
+            type="number"
+            name="guests"
+            min="1"
+            required
+        >
+    </label>
+
+
+    <label>
+        Event
+
+        <select name="event_type">
+            <option>Birthday</option>
+            <option>Wedding</option>
+            <option>Corporate</option>
+            <option>Anniversary</option>
+        </select>
+    </label>
+
+</div>
+
+
+<div class="two">
+
+    <label>
+        Venue
+
+        <input name="venue">
+    </label>
+
+
+    <label>
+        City
+
+        <input name="city">
+    </label>
+
+</div>
+
+
+<label>
+    Preferences
+
+    <textarea
+        name="preferences"
+        rows="5"
+    ></textarea>
+</label>
+
+{% endblock %}

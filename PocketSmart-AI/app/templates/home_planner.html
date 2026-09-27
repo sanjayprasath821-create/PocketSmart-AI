@@ -1,0 +1,108 @@
+{% extends "planner_base.html" %}
+
+{% set eyebrow = "HOME INTERIOR PLANNER" %}
+
+{% set heading = "Build a beautiful room within budget." %}
+
+{% set description = "Set your room, style, budget and required items." %}
+
+{% set action = "/generate-home" %}
+
+
+{% block form %}
+
+<label>
+    Budget (₹)
+
+    <input
+        type="number"
+        name="budget"
+        min="1"
+        step=".01"
+        required
+    >
+</label>
+
+
+<div class="two">
+
+    <label>
+        Room
+
+        <select name="room_type">
+            <option>Living Room</option>
+            <option>Kitchen</option>
+            <option>Bedroom</option>
+            <option>Dining Room</option>
+        </select>
+    </label>
+
+
+    <label>
+        Style
+
+        <select name="style">
+            <option>Modern</option>
+            <option>Minimalist</option>
+            <option>Traditional</option>
+            <option>Luxury</option>
+        </select>
+    </label>
+
+</div>
+
+
+<label>
+    Location
+
+    <input name="location">
+</label>
+
+
+<label>
+    Items
+</label>
+
+
+<div id="items">
+
+    <div class="item">
+
+        <input
+            name="cat"
+            placeholder="Ceiling fan"
+        >
+
+        <input
+            name="qty"
+            type="number"
+            min="1"
+            value="1"
+        >
+
+    </div>
+
+</div>
+
+
+<button
+    type="button"
+    class="outline"
+    onclick="addItem()"
+>
+    + Add item
+</button>
+
+
+<input
+    type="hidden"
+    name="items_json"
+    id="items_json"
+>
+
+
+<script
+    src="{{ url_for('static', path='js/planners.js') }}"
+></script>
+
+{% endblock %}

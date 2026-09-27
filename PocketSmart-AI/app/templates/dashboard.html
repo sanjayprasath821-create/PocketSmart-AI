@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<h1>
+    Hello, {{ user.name }} 👋
+</h1>
+
+<p>
+    Choose a planner.
+</p>
+
+
+<div class="grid">
+
+    <a href="/home-planner">
+        <article>
+            <b>⌂ Home Interior</b>
+
+            <p>
+                Room budget and decor.
+            </p>
+        </article>
+    </a>
+
+
+    <a href="/party-planner">
+        <article>
+            <b>★ Party Planner</b>
+
+            <p>
+                Event budget and guests.
+            </p>
+        </article>
+    </a>
+
+
+    <a href="/jewelry-planner">
+        <article>
+            <b>◇ Jewelry Planner</b>
+
+            <p>
+                Occasion and outfit matching.
+            </p>
+        </article>
+    </a>
+
+</div>
+
+
+<h2>
+    Recent recommendations
+</h2>
+
+{% for item in history %}
+
+<p class="row">
+
+    <a href="/recommendations-details/{{ item.id }}">
+        {{ item.planner|title }}
+    </a>
+
+    —
+    {{ item.created_at.strftime("%d %b %Y %H:%M") }}
+
+</p>
+
+{% else %}
+
+<p>
+    No recommendations yet.
+</p>
+
+{% endfor %}
+
+{% endblock %}

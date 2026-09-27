@@ -1,0 +1,79 @@
+{% extends "planner_base.html" %}
+
+{% set eyebrow = "JEWELRY BUDGET PLANNER" %}
+
+{% set heading = "Match the occasion, outfit and budget." %}
+
+{% set description = "Upload an optional outfit image for multimodal analysis." %}
+
+{% set action = "/generate-jewelry" %}
+
+{% set enctype = "multipart/form-data" %}
+
+
+{% block form %}
+
+<label>
+    Budget (₹)
+
+    <input
+        type="number"
+        name="budget"
+        min="1"
+        step=".01"
+        required
+    >
+</label>
+
+
+<div class="two">
+
+    <label>
+        Occasion
+
+        <select name="occasion">
+            <option>Wedding</option>
+            <option>Party</option>
+            <option>Festival</option>
+            <option>Office</option>
+            <option>Casual</option>
+        </select>
+    </label>
+
+
+    <label>
+        Style
+
+        <select name="style">
+            <option>Elegant</option>
+            <option>Minimalist</option>
+            <option>Traditional</option>
+            <option>Statement</option>
+        </select>
+    </label>
+
+</div>
+
+
+<label>
+    Outfit description
+
+    <textarea
+        name="outfit_description"
+        rows="5"
+        placeholder="Describe the outfit color, fabric, neckline, etc."
+    ></textarea>
+</label>
+
+
+<label>
+    Outfit image
+
+    <input
+        type="file"
+        name="outfit_image"
+        accept="image/jpeg,image/png,image/webp"
+    >
+</label>
+
+{% endblock %}

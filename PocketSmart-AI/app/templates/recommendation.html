@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+Recommendation
+{% endblock %}
+
+
+{% block content %}
+
+<div class="auth wide">
+
+    <small>
+        {{ planner }} RECOMMENDATION
+    </small>
+
+    <h1>
+        Your personalized plan
+    </h1>
+
+
+    <pre>{{ response }}</pre>
+
+
+    <a
+        class="btn"
+        href="/dashboard"
+    >
+        Back to dashboard
+    </a>
+
+</div>
+
+{% endblock %}
